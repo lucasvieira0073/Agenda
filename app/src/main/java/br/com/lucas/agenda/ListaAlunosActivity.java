@@ -1,8 +1,11 @@
 package br.com.lucas.agenda;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,7 +26,16 @@ public class ListaAlunosActivity extends AppCompatActivity {
         listaAlunos.setAdapter(adapter);
 
 
+        Button btnNovoAluno = (Button) findViewById(R.id.lista_btn_novo);
+        btnNovoAluno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //de onde estamos e para onde vamos
+                Intent intentVaiProFormulario = new Intent(ListaAlunosActivity.this, FormularioActivity.class);
+                startActivity(intentVaiProFormulario);
 
+            }
+        });
 
     }
 
