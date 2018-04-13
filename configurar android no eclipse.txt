@@ -1,0 +1,40 @@
+http://www.pontov.com.br/site/android/276-configurando-ambiente-de-desenvolvimento-android-com-eclipse
+
+
+baixar android sdk
+http://developer.android.com/sdk/index.html
+
+baixar eclipse IDE for Java Developers (não testei se serve o JavaEE)
+
+Instalação
+
+instalar o android sdk em
+C:\Android\android-sdk
+
+adicione o plugin no eclipse
+
+no eclipse vá em  help >install new software
+clique em andd
+em nome coloque   ADT Plugin
+em location coloque   https://dl-ssl.google.com/android/eclipse/
+
+
+estando instalado o SDK android va para  windows > preferences > android
+localize a instalação da sdk do android (c:/android/andorid-sdk) e dê ok
+
+
+para criar um AVD (virtual device) ex:
+
+
+name    Android_2.2
+target  android 2.2 - API level 9
+CPU/ABI  fica desabilitado ou ARM
+
+size  512 mb
+enabled desmarcado
+
+skin   bult-in default (WVGA800)
+
+property
+abstracted LCD density value   240
+Max VM application hea.... value  24
