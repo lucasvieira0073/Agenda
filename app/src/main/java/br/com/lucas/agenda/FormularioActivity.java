@@ -8,14 +8,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class FormularioActivity extends AppCompatActivity {
+
+    FormularioHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
+
+        helper = new FormularioHelper(this);
 
         Button botaoSalvar = (Button) findViewById(R.id.formulario_salvar);
         botaoSalvar.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +46,11 @@ public class FormularioActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.menu_formulario_ok:
-                Toast.makeText(FormularioActivity.this, "Botão clicado!", Toast.LENGTH_SHORT).show();
+
+                Aluno aluno = helper.pegaAluno();
+
+                Toast.makeText(FormularioActivity.this, "Aluno " + aluno.getNome() + " salvo!", Toast.LENGTH_SHORT).show();
+
                 finish();
                 break;
         }
