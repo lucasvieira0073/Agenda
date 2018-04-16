@@ -22,23 +22,6 @@ public class ListaAlunosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_alunos);
 
-        //conexao com banco de dados
-        //busca para trazer alunos
-        //popular o array
-
-        AlunoDAO dao = new AlunoDAO(this);
-        List<Aluno> alunos = dao.buscaAlunos();
-        dao.close();
-
-        ListView listaAlunos = (ListView) findViewById(R.id.lista_alunos);//alt + enter faz o import
-
-        //convertendo Strings em Views
-        ArrayAdapter<Aluno> adapter = new ArrayAdapter<Aluno>(this, android.R.layout.simple_expandable_list_item_1, alunos);
-
-        //vincula a lista com o adapter
-        listaAlunos.setAdapter(adapter);
-
-
         Button btnNovoAluno = (Button) findViewById(R.id.lista_btn_novo);
         btnNovoAluno.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,5 +35,25 @@ public class ListaAlunosActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        carregarLista();
+    }
+
+    private void carregarLista() {
+        AlunoDAO dao = new AlunoDAO(this);
+        List<Aluno> alunos = dao.buscaAlunos();
+        dao.close();
+
+        ListView listaAlunos = (ListView) findViewById(R.id.lista_alunos);//alt + enter faz o import
+
+        //convertendo Strings em Views
+        ArrayAdapter<Aluno> adapter = new ArrayAdapter<Aluno>(this, android.R.layout.simple_expandable_list_item_1, alunos);
+
+        //vincula a lista com o adapter
+        listaAlunos.setAdapter(adapter);
+
+    }
 }
