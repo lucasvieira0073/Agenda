@@ -1,7 +1,6 @@
-package br.com.lucas.agenda;
+package br.com.lucas.agenda.models;
 
-class Aluno {
-
+public class Aluno {
     private Long id;
     private String nome;
     private String endereco;
@@ -18,6 +17,16 @@ class Aluno {
         this.site = site;
         this.nota = nota;
     }
+
+    public Aluno(Long id, String nome, String endereco, String telefone, String site, Double nota) {
+        this.id = id;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.site = site;
+        this.nota = nota;
+    }
+
 
 
     public Long getId() {
@@ -66,5 +75,10 @@ class Aluno {
 
     public void setNota(Double nota) {
         this.nota = nota;
+    }
+
+    @Override
+    public String toString() {
+        return getId() + " - " + getNome();
     }
 }

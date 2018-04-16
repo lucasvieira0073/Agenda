@@ -1,7 +1,11 @@
-package br.com.lucas.agenda;
+package br.com.lucas.agenda.formulario;
 
 import android.widget.EditText;
 import android.widget.RatingBar;
+
+import  br.com.lucas.agenda.models.Aluno;
+import br.com.lucas.agenda.R;
+import br.com.lucas.agenda.formulario.FormularioActivity;
 
 public class FormularioHelper {
 

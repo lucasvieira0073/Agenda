@@ -1,6 +1,5 @@
-package br.com.lucas.agenda;
+package br.com.lucas.agenda.formulario;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,8 +7,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
+
+import br.com.lucas.agenda.dao.AlunoDAO;
+import br.com.lucas.agenda.models.Aluno;
+import br.com.lucas.agenda.R;
 
 public class FormularioActivity extends AppCompatActivity {
 
@@ -48,6 +50,9 @@ public class FormularioActivity extends AppCompatActivity {
             case R.id.menu_formulario_ok:
 
                 Aluno aluno = helper.pegaAluno();
+                AlunoDAO dao = new AlunoDAO(this);
+                dao.insere(aluno);
+                dao.close();
 
                 Toast.makeText(FormularioActivity.this, "Aluno " + aluno.getNome() + " salvo!", Toast.LENGTH_SHORT).show();
 
